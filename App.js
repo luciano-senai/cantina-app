@@ -9,14 +9,14 @@ npx expo install react-native-screens react-native-safe-area-context
 */
 
 export default function App() {
-  const AppStack = createNativeStackNavigator();
+  const Stack = createNativeStackNavigator();
 
   return (
     <NavigationContainer>
-      <AppStack.Navigator>
-        <AppStack.Screen name="Login" component={LoginScreen} />
-        <AppStack.Screen name="Home" component={HomeScreen} />
-      </AppStack.Navigator>
+      <Stack.Navigator>
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
