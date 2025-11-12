@@ -1,18 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import LoginScreen from './screens/LoginScreen';
+import HomeScreen from './screens/HomeScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+/*
+npm install @react-navigation/native @react-navigation/native-stack
+npx expo install react-native-screens react-native-safe-area-context
+*/
 
 export default function App() {
+  const AppStack = createNativeStackNavigator();
+
   return (
-    <LoginScreen/>
+    <NavigationContainer>
+      <AppStack.Navigator>
+        <AppStack.Screen name="Login" component={LoginScreen} />
+        <AppStack.Screen name="Home" component={HomeScreen} />
+      </AppStack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

@@ -1,9 +1,11 @@
+import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import { View, Text, StyleSheet, TextInput, Button, Alert } from "react-native";
 
 export default function LoginScreen() {
-    const [email, setEmail] = useState('')
-    const [senha, setSenha ] = useState('')
+  const navigation = useNavigation();
+  const [email, setEmail] = useState('')
+  const [senha, setSenha ] = useState('')
 
   return (
     <View style={styles.container}>
@@ -14,7 +16,7 @@ export default function LoginScreen() {
       <TextInput placeholder="Informe sua senha" 
       onChangeText={(e) => setSenha(e)}></TextInput>
       <Button title="Confirmar" 
-      onPress={() => Alert.alert(`Usuario: ${email}, senha: ${senha}`)}></Button>
+      onPress={() => navigation.navigate('Home')}></Button>
     </View>
   );
 }
