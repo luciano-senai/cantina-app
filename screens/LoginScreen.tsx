@@ -7,6 +7,17 @@ export default function LoginScreen() {
   const [email, setEmail] = useState('')
   const [senha, setSenha ] = useState('')
 
+  function handleLogin(){
+    //1 passo - Validar usuario e senha
+    //2 passo - Redirecionar para tela principal
+
+    if(email === 'teste@teste.com' && senha === '123'){
+      navigation.navigate('Home');
+    } else {
+      Alert.alert('Usuário não encontrado');
+    }
+  }
+
   return (
     <View style={styles.container}>
       <Text>Usuário</Text>
@@ -15,8 +26,7 @@ export default function LoginScreen() {
       <Text>Senha</Text>
       <TextInput placeholder="Informe sua senha" 
       onChangeText={(e) => setSenha(e)}></TextInput>
-      <Button title="Confirmar" 
-      onPress={() => navigation.navigate('Home')}></Button>
+      <Button title="Confirmar" onPress={handleLogin}></Button>
     </View>
   );
 }
